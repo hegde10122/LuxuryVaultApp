@@ -1,0 +1,23 @@
+@startuml
+
+title LuxuryItemDetailsScreen - Data Flow
+
+participant User as user1
+participant LuxuryItemDetailsScreen as screen
+participant ViewModel as viewModel
+participant UiState as state
+participant NavController as controller
+
+user1 --> screen
+screen --> viewModel : load item(id)
+viewModel --> state : emits item details
+state --> screen : render content
+
+user1 --> screen : Edit
+screen --> controller : navigate (edit)
+
+user --> screen : Delete
+screen --> viewModel : intent(delete)
+
+
+@enduml
