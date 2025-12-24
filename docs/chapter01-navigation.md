@@ -1,1 +1,1 @@
-[](./navigation.png)
+![Navigation Graph](images/navigation.png)
