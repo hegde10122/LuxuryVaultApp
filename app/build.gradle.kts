@@ -119,9 +119,8 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.androidx.room.ktx)
     testImplementation(libs.androidx.core.testing.v220)
-    // Note the version}
+
     ksp(libs.androidx.room.compiler.v250)
-    // kapt(libs.androidx.room.compiler.v250)
     testImplementation(libs.androidx.room.testing)
     testImplementation(libs.kotlinx.coroutines.test)
 

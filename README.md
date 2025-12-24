@@ -47,7 +47,7 @@ Ensure offline-first behavior:
 
 ## Architectural Constraints
 The app must be built using:
-Clean Architecture
+- Clean Architecture
 - Clear separation of Presentation, Domain, and Data layers.
 - Domain layer must not depend on Android or framework code.
 
