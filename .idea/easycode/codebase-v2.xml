@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="com.obiscr.chatgpt.settings.EasyCodeState">
+    <option name="projectFiles" value="$PROJECT_DIR$/app/src/androidTest/java/com/luxuryvault/android/ExampleInstrumentedTest.kt;D:/AndroidApps/LuxuryVaultApp/app/src/main/java/com/luxuryvault/android/ui/theme/Color.kt;D:/AndroidApps/LuxuryVaultApp/app/src/main/java/com/luxuryvault/android/ui/theme/Theme.kt;D:/AndroidApps/LuxuryVaultApp/app/src/main/java/com/luxuryvault/android/ui/theme/Type.kt;D:/AndroidApps/LuxuryVaultApp/app/src/main/java/com/luxuryvault/android/MainActivity.kt;D:/AndroidApps/LuxuryVaultApp/app/src/test/java/com/luxuryvault/android/ExampleUnitTest.kt;D:/AndroidApps/LuxuryVaultApp/app/build.gradle.kts;D:/AndroidApps/LuxuryVaultApp/build.gradle.kts;D:/AndroidApps/LuxuryVaultApp/README.md;D:/AndroidApps/LuxuryVaultApp/settings.gradle.kts" />
+  </component>
+</project>
