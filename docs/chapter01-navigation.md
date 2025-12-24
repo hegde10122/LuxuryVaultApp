@@ -1,1 +1,1 @@
-[Navigation roadmap for the LuxuryVaultApp](./navigation.png)
+[](./navigation.png)
