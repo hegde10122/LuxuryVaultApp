@@ -1,0 +1,30 @@
+@startuml
+title LuxuryItemsListScreen - Data Flow
+
+participant User as user1
+participant LuxuryItemsListScreen as user2
+participant ViewModel as user3
+participant UIState as user4
+participant NavController as user5
+
+user1 --> user2
+user2 -> user3 : request list
+user3 -> user4 : emits list state
+user4 -> user2 : render list
+
+User -> user2 : clicks item
+user2 -> user5 : navigate(details)
+
+User -> user2 : FAB Click
+user2 -> user5 : navigate(add)
+
+note left of user1
+
+Interpretation --
+
+Screen does not know data source
+List of luxury item objects is just state
+Navigation is a side-effect
+
+end note
+@enduml
