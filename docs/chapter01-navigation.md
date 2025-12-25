@@ -1,13 +1,23 @@
 ![Navigation Graph](images/navigation.png)
 
-![Part 2 - Sequence Diagram - LuxuryItemsListScreen](images/dataflow_screen1-LuxuryItemsListScreen___Data_Flow.png)
+---
+
+![Part 2 - Sequence Diagram - LuxuryItemsListScreen](images/dataflow_screen1-LuxuryItemsListScreen___Data_Flow.png
+
+
+---
 
 ![Part 3 - Sequence Diagram - LuxuryItemDetailsScreen](images/dataflow2_screen2-LuxuryItemDetailsScreen___Data_Flow.png)
 
+---
+
 ![Part 4 - Sequence Diagram - AddEditLuxuryItemScreen](images/dataflow3_screen3-AddEditLuxuryItemScreen___Data_Flow.png)
+
+---
 
 ![Part 5 - Sequence Diagram - ImageSearchScreen](images/dataflow4_screen4-ImageSearchScreen___Data_Flow.png)
 
+---
 
 ## Importance of Keeping Screens "Dumb"
 
