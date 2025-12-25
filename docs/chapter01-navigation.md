@@ -1,3 +1,26 @@
+# Phase 01 — Dumb UI Screens
+
+What we are doing here :
+
+- Layout structure
+- State → UI mapping
+- Click callbacks
+- Empty / loading / error visuals
+
+How we test
+- Manual interaction
+- Compose Preview
+- Fake state injection
+
+What we are not testing (correctly)
+
+- Navigation correctness
+- Business rules
+- Data persistence
+ 
+This phase eliminates flaky UI tests later because UI contracts are frozen early.
+Covers: UI Contract Testing
+
 ![Navigation Graph](images/navigation.png)
 
 ---
