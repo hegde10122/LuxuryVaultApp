@@ -18,8 +18,10 @@ What we are not testing (correctly)
 - Business rules
 - Data persistence
  
-This phase eliminates flaky UI tests later because UI contracts are frozen early.
-Covers: UI Contract Testing
+- This phase eliminates flaky UI tests later because UI contracts are frozen early.
+- Covers: UI Contract Testing
+
+## Flow of Navigation and Data (Diagrams)
 
 ![Navigation Graph](images/navigation.png)
 
