@@ -1,0 +1,20 @@
+@startuml
+
+title AddEditLuxuryItemScreen - Data Flow
+
+participant User as A1
+participant AddEditLuxuryItemScreen as B1
+participant UiState as C1
+participant ViewModel as D1
+participant NavController as E1
+
+A1 --> B1
+B1 --> C1 : form fields
+
+A1 --> B1 : Search Image
+B1 --> E1 : NavController : navigate (imageSearch)
+
+A1 --> B1 : Save
+B1 --> D1 : intent(saveItem)
+
+@enduml

@@ -1,0 +1,18 @@
+@startuml
+title ImageSearchScreen - Data Flow
+
+participant User as A1
+participant ImageSearchScreen as B1
+participant ViewModel as C1
+participant UiState as D1
+participant NavController as E1
+
+A1 --> B1
+B1 --> C1 : searchImages(query)
+C1 --> D1 : image list
+D1 --> B1 : render image grid
+
+A1 --> B1 : Select Image
+B1 --> E1 : return(imageUrl)
+
+@enduml
