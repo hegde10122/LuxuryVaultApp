@@ -27,7 +27,7 @@ What we are not testing (correctly)
 
 ---
 
-![Part 2 - Sequence Diagram - LuxuryItemsListScreen](images/dataflow_screen1-LuxuryItemsListScreen___Data_Flow.png
+![Part 2 - Sequence Diagram - LuxuryItemsListScreen](images/dataflow_screen1-LuxuryItemsListScreen___Data_Flow.png)
 
 
 ---
