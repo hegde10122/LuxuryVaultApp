@@ -19,3 +19,24 @@ data class LuxuryItemUiModel(
     val category:String,
     val imageUrl:String? = null
 )
+
+/**
+ *
+Purpose:
+
+Exactly what UI needs
+Nothing more
+Nothing less
+
+Used by:
+
+Composables
+UI state
+ViewModel
+
+Never used by:
+
+Room
+Retrofit
+Domain use cases
+ * */
