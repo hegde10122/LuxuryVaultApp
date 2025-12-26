@@ -15,9 +15,10 @@ It does NOT represent a database entity or domain model.
 data class LuxuryItemUiModel(
 
     val id: String,
-    val name: String,
+    val title: String,
     val category:String,
-    val imageUrl:String? = null
+    val imageUrl:String,
+    val subtitle:String
 )
 
 /**

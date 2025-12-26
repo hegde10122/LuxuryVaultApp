@@ -16,6 +16,7 @@ android {
     compileSdk {
         version = release(36)
     }
+    android.buildFeatures.buildConfig = true
 
     defaultConfig {
         applicationId = "com.luxuryvault.android"
