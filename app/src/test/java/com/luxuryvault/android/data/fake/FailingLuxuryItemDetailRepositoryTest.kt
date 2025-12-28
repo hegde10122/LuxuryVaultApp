@@ -7,13 +7,12 @@ import com.luxuryvault.android.presentation.luxurylist.LuxuryItemUiModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class FailingLuxuryItemRepository : LuxuryItemRepository {
-    override fun getLuxuryItems(): Flow<Resource<List<LuxuryItemUiModel>>> =
-        flow {
-            throw RuntimeException("Database failure")
-        }
+class FailingLuxuryItemDetailRepositoryTest : LuxuryItemRepository {
+    override fun getLuxuryItems(): Flow<Resource<List<LuxuryItemUiModel>>> {
+        throw UnsupportedOperationException()
+    }
 
     override fun getLuxuryItemById(id: String): Flow<Resource<LuxuryItemDetailUiModel>> {
-        throw UnsupportedOperationException()
+        return flow{emit(Resource.Error("Item not found")) }
     }
 }

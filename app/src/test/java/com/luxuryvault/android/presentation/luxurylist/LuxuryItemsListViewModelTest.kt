@@ -1,7 +1,7 @@
 package com.luxuryvault.android.presentation.luxurylist
 
-import com.luxuryvault.android.data.fake.FailingLuxuryItemRepository
-import com.luxuryvault.android.data.fake.FakeLuxuryItemRepository
+import com.luxuryvault.android.data.fake.FailingLuxuryItemRepositoryTest
+import com.luxuryvault.android.data.fake.FakeLuxuryItemRepositoryTest
 import junit.framework.TestCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -71,7 +71,7 @@ class LuxuryItemsListViewModelTest {
     fun setup() {
         Dispatchers.setMain(testDispatcher)
 
-        val fakeRepository = FakeLuxuryItemRepository()
+        val fakeRepository = FakeLuxuryItemRepositoryTest()
         viewModel = LuxuryItemsListViewModel(fakeRepository)
 
 
@@ -151,7 +151,7 @@ class LuxuryItemsListViewModelTest {
     @Test
     fun `when repository emits loading, ui state reflects loading`() = runTest {
 
-        val repository = FakeLuxuryItemRepository()
+        val repository = FakeLuxuryItemRepositoryTest()
 
         val viewModel = LuxuryItemsListViewModel(repository)
 
@@ -174,7 +174,7 @@ class LuxuryItemsListViewModelTest {
     @Test
     fun `when repository emits error, ui state contains error message`() = runTest {
 
-        val repository = FailingLuxuryItemRepository()
+        val repository = FailingLuxuryItemRepositoryTest()
         val viewModel = LuxuryItemsListViewModel(repository)
 
         testDispatcher.scheduler.advanceUntilIdle()

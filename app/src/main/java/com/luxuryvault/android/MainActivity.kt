@@ -18,7 +18,9 @@ import com.luxuryvault.android.presentation.imagesearch.ImageSearchScreen
 import com.luxuryvault.android.presentation.luxurydetails.LuxuryItemDetailScreen
 import com.luxuryvault.android.presentation.navigation.AppNavGraph
 import com.luxuryvault.android.ui.theme.LuxuryVaultAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

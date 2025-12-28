@@ -7,7 +7,7 @@ import com.luxuryvault.android.presentation.luxurylist.LuxuryItemUiModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 
-class FakeLuxuryItemDetailRepository : LuxuryItemRepository {
+class FakeLuxuryItemDetailRepositoryTest : LuxuryItemRepository {
 
     private val items = listOf(
         LuxuryItemDetailUiModel(

@@ -1,6 +1,7 @@
 package com.luxuryvault.android.core.di
 
-import com.luxuryvault.android.data.fake.FakeLuxuryItemRepository
+
+import com.luxuryvault.android.data.repository.LuxuryItemRepositoryImpl
 import com.luxuryvault.android.domain.repository.LuxuryItemRepository
 import dagger.Binds
 import dagger.Module
@@ -15,7 +16,7 @@ import dagger.hilt.components.SingletonComponent
  * (LuxuryItemRepository), not on a concrete implementation.
  * This follows the Dependency Inversion Principle.
  *
- * By binding FakeLuxuryItemRepository to the interface here,
+ * By binding FakeLuxuryItemRepositoryTest to the interface here,
  * we achieve the following:
  *
  * 1. ViewModels remain completely unaware of where data comes from.
@@ -33,6 +34,6 @@ import dagger.hilt.components.SingletonComponent
 abstract class LuxuryRepositoryModule
 {
     @Binds
-    abstract fun bindLuxuryRepository(repositoryImpl: FakeLuxuryItemRepository): LuxuryItemRepository
+    abstract fun bindLuxuryRepository(repositoryImpl: LuxuryItemRepositoryImpl): LuxuryItemRepository
 
 }

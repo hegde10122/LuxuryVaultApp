@@ -52,7 +52,6 @@ import javax.inject.Inject
  * It enables the screen to remain a dumb renderer of state while preserving
  * clear separation of concerns and long-term maintainability.
  */
-
 @HiltViewModel
 class LuxuryItemsListViewModel @Inject constructor(
     private val repository: LuxuryItemRepository

@@ -1,8 +1,8 @@
 package com.luxuryvault.android.presentation.luxurydetails
 
-import android.util.Log
-import com.luxuryvault.android.data.fake.FailingLuxuryItemDetailRepository
-import com.luxuryvault.android.data.fake.FakeLuxuryItemDetailRepository
+
+import com.luxuryvault.android.data.fake.FailingLuxuryItemDetailRepositoryTest
+import com.luxuryvault.android.data.fake.FakeLuxuryItemDetailRepositoryTest
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertFalse
 import junit.framework.TestCase.assertNull
@@ -23,9 +23,9 @@ class LuxuryItemDetailViewModelTest {
     private val testDispatcher = StandardTestDispatcher()
 
     private lateinit var viewModel: LuxuryItemDetailViewModel
-    private lateinit var repository: FakeLuxuryItemDetailRepository
+    private lateinit var repository: FakeLuxuryItemDetailRepositoryTest
 
-    private lateinit var repository2: FailingLuxuryItemDetailRepository
+    private lateinit var repository2: FailingLuxuryItemDetailRepositoryTest
 
     @Before
     fun setup(){
@@ -41,7 +41,7 @@ class LuxuryItemDetailViewModelTest {
     @Test
     fun `initial loading state`() = runTest {
 
-        repository = FakeLuxuryItemDetailRepository()
+        repository = FakeLuxuryItemDetailRepositoryTest()
         viewModel = LuxuryItemDetailViewModel( repository)
 
         val state = viewModel.uiState.value
@@ -55,7 +55,7 @@ class LuxuryItemDetailViewModelTest {
     //Test 2: Successful data retrieval
     @Test
     fun `success emits exact luxury item`() = runTest {
-        repository = FakeLuxuryItemDetailRepository()
+        repository = FakeLuxuryItemDetailRepositoryTest()
         viewModel = LuxuryItemDetailViewModel(repository)
 
 
@@ -81,7 +81,7 @@ class LuxuryItemDetailViewModelTest {
     // Test 3: Error state mapping
     @Test
     fun `error emits error state`() = runTest {
-        repository2 = FailingLuxuryItemDetailRepository()
+        repository2 = FailingLuxuryItemDetailRepositoryTest()
         viewModel = LuxuryItemDetailViewModel( repository2)
 
         viewModel.loadItem("2")
@@ -94,6 +94,5 @@ class LuxuryItemDetailViewModelTest {
         assertNull(state.item)
         assertEquals("Item not found", state.errorMessage)
     }
-
-
 }
+

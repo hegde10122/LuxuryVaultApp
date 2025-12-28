@@ -1,4 +1,5 @@
 package com.luxuryvault.android.data.fake
+
 import com.luxuryvault.android.core.util.Resource
 import com.luxuryvault.android.domain.repository.LuxuryItemRepository
 import com.luxuryvault.android.presentation.luxurydetails.LuxuryItemDetailUiModel
@@ -6,26 +7,20 @@ import com.luxuryvault.android.presentation.luxurylist.LuxuryItemUiModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 
+
 /**
- * FakeLuxuryItemRepository is a controlled in-memory implementation of
- * LuxuryItemRepository that emits a predefined list of luxury items wrapped
- * in a Resource.Success state.
+ * Test-only fake implementation of [com.luxuryvault.android.domain.repository.LuxuryItemRepository].
  *
- * This implementation is intentionally deterministic and side-effect free,
- * allowing the presentation layer and ViewModel logic to be exercised without
- * relying on database access, network calls, or asynchronous timing concerns.
+ * WHY THIS EXISTS:
+ * - Provides deterministic data for unit tests
+ * - Avoids Room / Retrofit / network dependencies
+ * - Allows ViewModels to be tested in isolation
  *
- * The repository exposes its data as a Flow to preserve the reactive contract
- * defined by the domain layer, ensuring that consumers interact with it in the
- * same manner as they would with a real production repository.
- *
- * This fake is primarily used during early development phases and ViewModel
- * testing to validate UI state transitions and data propagation while keeping
- * the system isolated from external dependencies.
+ * IMPORTANT:
+ * - Must NEVER live in src/main
+ * - Must NEVER be referenced by production Hilt modules
  */
-
-class FakeLuxuryItemRepository : LuxuryItemRepository {
-
+class FakeLuxuryItemRepositoryTest : LuxuryItemRepository {
     override fun getLuxuryItems(): Flow<Resource<List<LuxuryItemUiModel>>> {
 
         return flowOf(
@@ -59,4 +54,6 @@ class FakeLuxuryItemRepository : LuxuryItemRepository {
     override fun getLuxuryItemById(id: String): Flow<Resource<LuxuryItemDetailUiModel>> {
         throw UnsupportedOperationException()
     }
+
+
 }
