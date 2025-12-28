@@ -1,0 +1,24 @@
+@startuml
+package Presentation {
+    class LuxuryItemDetailViewModel
+    class LuxuryItemDetailUiState
+}
+
+package Domain {
+    interface LuxuryItemRepository
+}
+
+LuxuryItemDetailViewModel --> LuxuryItemRepository
+LuxuryItemDetailViewModel --> LuxuryItemDetailUiState
+
+note right of LuxuryItemDetailViewModel
+- Does not store navigation arguments
+- loadItem(id) is explicit
+- Handles loading, success, error
+- No Compose or Nav dependency
+end note
+
+note bottom of LuxuryItemDetailUiState
+Single source of truth for Detail screen UI.
+end note
+@enduml

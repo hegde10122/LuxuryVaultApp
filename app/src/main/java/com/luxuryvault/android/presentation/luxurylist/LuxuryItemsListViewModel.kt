@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.luxuryvault.android.core.util.Resource
 import com.luxuryvault.android.domain.repository.LuxuryItemRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -11,6 +12,7 @@ import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 /**
  * LuxuryItemsListViewModel is the presentation-layer orchestrator for the
@@ -50,7 +52,9 @@ import kotlinx.coroutines.launch
  * It enables the screen to remain a dumb renderer of state while preserving
  * clear separation of concerns and long-term maintainability.
  */
-class LuxuryItemsListViewModel(
+
+@HiltViewModel
+class LuxuryItemsListViewModel @Inject constructor(
     private val repository: LuxuryItemRepository
 ) : ViewModel() {
 
@@ -114,3 +118,14 @@ class LuxuryItemsListViewModel(
     }
 
 }
+
+/**
+ * Responsibility
+ *
+ * Fetch list of luxury items
+   Convert Resource<List<>> → UI State
+   Expose stable state for Compose
+   No navigation
+   No Android UI logic
+   No data source knowledge
+ */

@@ -3,9 +3,9 @@ package com.luxuryvault.android.presentation.luxurylist
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.luxuryvault.android.data.fake.FakeLuxuryItemRepository
-import com.luxuryvault.android.presentation.factory.LuxuryItemsListViewModelFactory
 
 @Composable
 fun LuxuryItemsListRoute(
@@ -21,12 +21,13 @@ fun LuxuryItemsListRoute(
     * without changing this Route’s public API.
     */
 
-    val repository = FakeLuxuryItemRepository()
+   // val repository = FakeLuxuryItemRepository()
 
-    val viewModel: LuxuryItemsListViewModel = viewModel(
-        factory = LuxuryItemsListViewModelFactory(repository)
-    )
+//    val viewModel: LuxuryItemsListViewModel = viewModel(
+//        factory = LuxuryItemsListViewModelFactory(repository)
+//    )
 
+    val viewModel : LuxuryItemsListViewModel = hiltViewModel()
     val state by viewModel.state.collectAsState()
 
     LuxuryItemsListScreen(

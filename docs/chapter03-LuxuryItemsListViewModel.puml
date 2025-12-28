@@ -1,0 +1,25 @@
+@startuml
+package Presentation {
+class LuxuryItemsListViewModel
+class LuxuryItemListUiState
+}
+
+package Domain {
+interface LuxuryItemRepository
+}
+
+LuxuryItemsListViewModel --> LuxuryItemRepository
+LuxuryItemsListViewModel --> LuxuryItemListUiState
+
+note right of LuxuryItemsListViewModel
+- Subscribes to Flow from repository
+- Maps Resource to UiState
+- Holds no UI references
+- Lifecycle-aware via ViewModelScope
+  end note
+
+note bottom of LuxuryItemRepository
+Abstraction only.
+Implementation is injected by Hilt.
+end note
+@enduml

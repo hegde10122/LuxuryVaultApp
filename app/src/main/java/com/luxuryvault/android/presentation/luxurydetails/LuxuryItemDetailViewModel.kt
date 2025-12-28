@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.luxuryvault.android.core.util.Resource
 import com.luxuryvault.android.domain.repository.LuxuryItemRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
@@ -11,7 +13,8 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class LuxuryItemDetailViewModel(
+@HiltViewModel
+class LuxuryItemDetailViewModel @Inject constructor(
     private val repository: LuxuryItemRepository) : ViewModel() {
 
     private val _state = MutableStateFlow(LuxuryItemDetailUiState(isLoading = true))
