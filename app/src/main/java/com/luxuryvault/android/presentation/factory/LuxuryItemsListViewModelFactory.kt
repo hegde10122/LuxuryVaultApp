@@ -1,4 +1,4 @@
-package com.luxuryvault.android.presentation
+package com.luxuryvault.android.presentation.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

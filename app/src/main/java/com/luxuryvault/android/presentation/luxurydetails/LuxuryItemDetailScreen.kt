@@ -1,6 +1,6 @@
 package com.luxuryvault.android.presentation.luxurydetails
 
-
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,70 +23,82 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import java.nio.file.WatchEvent
 
 @Composable
-fun
-        LuxuryItemDetailScreen(){
+fun LuxuryItemDetailScreen(state: LuxuryItemDetailUiState, onBackClick: () -> Unit){
 
-    val fakeItem = LuxuryItemDetailUiModel(
-        id = "1",
-        title = "Rolex Submariner",
-        category = "Swiss Watch",
-        imageUrl = "",
-        subtitle = "Ultra Rare · Invite Only",
-        description = "A legendary diver’s watch crafted with precision, " +
-                "heritage, and unmatched exclusivity. Designed for those " +
-                "who value timeless luxury."
-    )
+    when {
 
-    Column(
-        modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(35.dp).padding(
-            WindowInsets.systemBars.asPaddingValues()
-        )
-    ){
-
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(260.dp)
-                .clip(RoundedCornerShape(16.dp))
-                .background(Color.LightGray),
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = "IMAGE",
-                style = MaterialTheme.typography.titleMedium,
-                color = Color.DarkGray
-            )
+        state.isLoading -> {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+                    Text("Loading...", style = MaterialTheme.typography.bodyMedium)
+                }
         }
-        Spacer(modifier = Modifier.height(24.dp))
 
-        Text(text = fakeItem.title,style= MaterialTheme.typography.headlineSmall)
-        Text(text = fakeItem.category,style= MaterialTheme.typography.bodyMedium)
-        Spacer(modifier = Modifier.height(8.dp))
+        state.errorMessage != null -> {
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+                    Text("Error: ${state.errorMessage}", style = MaterialTheme.typography.bodyMedium, color= Color.Red)
+                }
+        }
+
+        state.item != null -> {
+
+            val item = state.item
+
+            Log.d("Seekho ",item.id);
+
+            Column(
+                modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(24.dp).padding(
+                    WindowInsets.systemBars.asPaddingValues()
+                )
+            ){
+
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(260.dp)
+                        .clip(RoundedCornerShape(16.dp))
+                        .background(Color.LightGray),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = "IMAGE",
+                        style = MaterialTheme.typography.titleMedium,
+                        color = Color.DarkGray
+                    )
+                }
+                Spacer(modifier = Modifier.height(24.dp))
+
+                Text(text = item.title,style= MaterialTheme.typography.headlineSmall)
+                Text(text = item.category,style= MaterialTheme.typography.bodyMedium)
+                Spacer(modifier = Modifier.height(8.dp))
 
 
 
-        Text(
-            text = fakeItem.subtitle,
-            style = MaterialTheme.typography.bodyMedium,
-            color = Color.Gray
-        )
+                Text(
+                    text = item.subtitle,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = Color.Gray
+                )
 
-        Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(24.dp))
 
-        Text(
-            text = "Description",
-            style = MaterialTheme.typography.titleMedium
-        )
+                Text(
+                    text = "Description",
+                    style = MaterialTheme.typography.titleMedium
+                )
 
-        Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(8.dp))
 
-        Text(
-            text = fakeItem.description,
-            style = MaterialTheme.typography.bodyMedium
-        )
+                Text(
+                    text = item.description,
+                    style = MaterialTheme.typography.bodyMedium
+                )
 
+            }
+
+        }
     }
+
+
 }

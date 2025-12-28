@@ -1,21 +1,11 @@
-package com.luxuryvault.android.presentation
+package com.luxuryvault.android.presentation.luxurylist
 
-import com.luxuryvault.android.core.util.Resource
 import com.luxuryvault.android.data.fake.FailingLuxuryItemRepository
 import com.luxuryvault.android.data.fake.FakeLuxuryItemRepository
-import com.luxuryvault.android.domain.repository.LuxuryItemRepository
-import com.luxuryvault.android.presentation.luxurylist.LuxuryItemUiModel
-import com.luxuryvault.android.presentation.luxurylist.LuxuryItemsListViewModel
-import junit.framework.TestCase.assertEquals
-import junit.framework.TestCase.assertFalse
-import junit.framework.TestCase.assertNull
-import junit.framework.TestCase.assertTrue
+import junit.framework.TestCase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
@@ -108,14 +98,14 @@ class LuxuryItemsListViewModelTest {
     @Test
     fun `when repository emits success, ui state contains items`() = runTest {
 
-         testDispatcher.scheduler.advanceUntilIdle()
+        testDispatcher.scheduler.advanceUntilIdle()
 
         val uiState = viewModel.state.value
 
-        assertFalse(uiState.isLoading)
-        assertEquals(3, uiState.items.size)
-        assertNull(uiState.errorMessage)
-        assertEquals("Diamond Encrusted Watch", uiState.items[0].title)
+        TestCase.assertFalse(uiState.isLoading)
+        TestCase.assertEquals(3, uiState.items.size)
+        TestCase.assertNull(uiState.errorMessage)
+        TestCase.assertEquals("Diamond Encrusted Watch", uiState.items[0].title)
 
     }
 
@@ -147,7 +137,7 @@ class LuxuryItemsListViewModelTest {
         val expectedItems = expectedLuxuryItems()
 
         assert(actualItems !== expectedItems) //different references
-        assertEquals(expectedItems, actualItems) // same content
+        TestCase.assertEquals(expectedItems, actualItems) // same content
     }
 
     /**
@@ -166,12 +156,11 @@ class LuxuryItemsListViewModelTest {
         val viewModel = LuxuryItemsListViewModel(repository)
 
 
-
         val state = viewModel.state.value
 
-        assertTrue(state.isLoading)
-        assertTrue(state.items.isEmpty())
-        assertNull(state.errorMessage)
+        TestCase.assertTrue(state.isLoading)
+        TestCase.assertTrue(state.items.isEmpty())
+        TestCase.assertNull(state.errorMessage)
     }
 
     /**
@@ -192,9 +181,9 @@ class LuxuryItemsListViewModelTest {
 
         val state = viewModel.state.value
 
-        assertFalse(state.isLoading)
-        assertTrue(state.items.isEmpty())
-        assertEquals("Database failure", state.errorMessage)
+        TestCase.assertFalse(state.isLoading)
+        TestCase.assertTrue(state.items.isEmpty())
+        TestCase.assertEquals("Database failure", state.errorMessage)
     }
 
 }
@@ -232,7 +221,3 @@ class LuxuryItemsListViewModelTest {
 
  UI renders state, not objects.
  * */
-
-
-
-
